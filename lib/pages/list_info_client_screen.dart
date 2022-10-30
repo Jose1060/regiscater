@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:regiscater/constants/ui_constants.dart';
+import 'package:regiscater/pages/read_client.dart';
+import 'package:regiscater/widgets/client_card.dart';
 import 'package:rive/rive.dart';
 
 class ListClientScreen extends StatefulWidget {
@@ -54,8 +58,8 @@ class _ListClientScreenState extends State<ListClientScreen> {
         elevation: 0,
         iconTheme: const IconThemeData(color: primaryColor),
         title: const Text(
-          'Clientes',
-          style: TextStyle(color: primaryColor, fontSize: 12),
+          'Clients',
+          style: TextStyle(color: primaryColor, fontSize: 15),
         ),
         centerTitle: true,
         actions: [
@@ -77,6 +81,64 @@ class _ListClientScreenState extends State<ListClientScreen> {
             },
           ),
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Clients',
+              style: GoogleFonts.roboto(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Divider(),
+            Expanded(
+              child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance
+                    .collection('Clients')
+                    .snapshots(),
+                builder: ((context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+
+                  if (snapshot.hasData) {
+                    return GridView(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2),
+                      children: snapshot.data!.docs
+                          .map((client) => clientCard(() {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ClientReader(client),
+                                    ));
+                              }, client))
+                          .toList(),
+                    );
+                  }
+
+                  return Text(
+                    'There´s no Clients',
+                    style: GoogleFonts.nunito(color: Colors.grey[500]),
+                  );
+                }),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

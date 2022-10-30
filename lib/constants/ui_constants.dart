@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const double maxPageWidth = 220.0;
+const double spaceFormInput = 15.0;
 const primaryColor = Color.fromARGB(255, 72, 101, 230);
 
 class AppStyle {
@@ -21,26 +22,34 @@ class AppStyle {
   ];
 
   static TextStyle mainTitle =
-      GoogleFonts.roboto(fontSize: 18.0, fontWeight: FontWeight.bold);
+      GoogleFonts.roboto(fontSize: 20.0, fontWeight: FontWeight.bold);
+  static TextStyle separatorText =
+      GoogleFonts.nunito(fontSize: 25.0, fontWeight: FontWeight.w600);
+  static TextStyle phoneTitle = GoogleFonts.roboto(
+      fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.grey[600]);
+
+  static TextStyle dataText = GoogleFonts.roboto(
+      fontSize: 17.0, fontWeight: FontWeight.w400, color: Colors.black87);
+
+  static TextStyle dniTitle =
+      GoogleFonts.roboto(fontSize: 12.0, fontWeight: FontWeight.bold);
   static TextStyle mainContent =
       GoogleFonts.nunito(fontSize: 16.0, fontWeight: FontWeight.normal);
-  static TextStyle dateTitle =
-      GoogleFonts.roboto(fontSize: 13.0, fontWeight: FontWeight.w500);
+  static TextStyle inputTextStyle =
+      GoogleFonts.roboto(fontSize: 10.0, fontWeight: FontWeight.w500);
 }
 
 const textStyle = TextStyle(
   color: Colors.blueGrey,
-  fontSize: 13.0,
+  fontSize: 15.0,
   letterSpacing: 1,
   fontWeight: FontWeight.bold,
 );
 
-const inputTextStyle = TextStyle(
-  color: Colors.blueGrey,
-  fontSize: 10.0,
-  letterSpacing: 1,
-  fontWeight: FontWeight.bold,
-);
+final inputTextStyle = GoogleFonts.roboto(
+    fontSize: 13.0,
+    color: const Color.fromARGB(255, 60, 111, 136),
+    fontWeight: FontWeight.w500);
 
 final inputDecoration = InputDecoration(
     border: OutlineInputBorder(

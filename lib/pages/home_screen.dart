@@ -49,15 +49,15 @@ class HomeScreen extends StatelessWidget {
                     const Text(
                       "Aplicacion de registro de información de clientes",
                       textAlign: TextAlign.start,
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 15,
                     ),
                     const Text(
                       "Create with love for\nJose1060 <3",
                       textAlign: TextAlign.start,
-                      style: TextStyle(color: Colors.white, fontSize: 9),
+                      style: TextStyle(color: Colors.white, fontSize: 13),
                     ),
                     const SizedBox(
                       height: 75,
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                     const Text(
                       "Powered with Firebase and Flutter",
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 7),
+                      style: TextStyle(color: Colors.white, fontSize: 10),
                     ),
                     ElevatedButton(
                       onPressed: () => {
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                         backgroundColor: Colors.white,
                       ),
                       child: const Text(
-                        "Agregar ciudad",
+                        "Empezar",
                         style: TextStyle(
                           color: Colors.black,
                         ),
