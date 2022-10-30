@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "285288498740",
+    "project_id": "regiscater",
+    "storage_bucket": "regiscater.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285288498740:android:565f3713e4a867b1e6ec61",
+        "android_client_info": {
+          "package_name": "com.jose1060.regiscater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285288498740-tvrknk3srefu2m284d2bgpu84oai1rbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnbgKXfS3j06Gn8TPBPTxWMk3GXVq4hWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285288498740-tvrknk3srefu2m284d2bgpu84oai1rbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
