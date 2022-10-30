@@ -12,9 +12,10 @@ class DatabaseService {
         .add(ClientData.toMap())
         .then((value) => {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: const Text(
-                  'Saved',
-                  style: TextStyle(color: Colors.white),
+                content: Text(
+                  'Saved, ${ClientData.name}, first position',
+                  style: const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w700),
                 ),
                 backgroundColor: Colors.green[400],
               ))

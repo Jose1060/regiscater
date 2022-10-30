@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:regiscater/constants/ui_constants.dart';
+import 'package:rive/rive.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class ClientReader extends StatefulWidget {
   final QueryDocumentSnapshot doc;
@@ -11,6 +13,22 @@ class ClientReader extends StatefulWidget {
 }
 
 class _ClientReaderState extends State<ClientReader> {
+  late RiveAnimationController _controller;
+
+  /// Is the animation currently playing?
+  bool _isPlaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = OneShotAnimation(
+      'happy',
+      autoplay: false,
+      onStop: () => setState(() => _isPlaying = false),
+      onStart: () => setState(() => _isPlaying = true),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var re = widget.doc['gender'];
@@ -40,26 +58,58 @@ class _ClientReaderState extends State<ClientReader> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Personal data',
-              style: AppStyle.separatorText,
+            const Center(
+              child: SizedBox(
+                height: 180,
+                width: 180,
+                child: RiveAnimation.asset(
+                  'lib/assets/rive/avatar.riv',
+                ),
+              ),
             ),
-            Divider(
-              color: Colors.grey[500],
-              height: 10,
+            const SizedBox(
+              height: 40,
             ),
             Row(
               children: [
                 Container(
                     margin: const EdgeInsets.only(right: 5),
                     child: const Icon(Icons.person)),
-                Text(
-                  widget.doc['name'],
-                  style: AppStyle.dataText,
+                TextButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                        'Created at \n${timeago.format(widget.doc['timestamp'].toDate())}',
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w600),
+                      ),
+                      backgroundColor: Colors.purple[400],
+                    ));
+                  },
+                  child: SizedBox(
+                    width: 280,
+                    child: Text(
+                      widget.doc['name'],
+                      style: const TextStyle(fontSize: 30),
+                      maxLines: 2,
+                    ),
+                  ),
                 ),
               ],
             ),
+            Text(
+              'Click on the name to see the registration date',
+              style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+            ),
             const SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Personal data',
+              style: AppStyle.separatorText,
+            ),
+            Divider(
+              color: Colors.grey[500],
               height: 10,
             ),
             Row(

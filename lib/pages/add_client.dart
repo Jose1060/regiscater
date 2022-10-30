@@ -252,6 +252,7 @@ class _AddClientScreenState extends State<AddClientScreen> {
                               gender = v;
                             });
                           },
+                          decoration: inputDecoration,
                           value: gender,
                           items: <String>["Gender", "Female", "Male", "Other"]
                               .map((v) => DropdownMenuItem(

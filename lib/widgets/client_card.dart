@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:regiscater/constants/ui_constants.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 Widget clientCard(Function()? onTapeed, QueryDocumentSnapshot doc) {
   return InkWell(
@@ -36,6 +37,14 @@ Widget clientCard(Function()? onTapeed, QueryDocumentSnapshot doc) {
                   Text(
                     doc['phone'].toString(),
                     style: AppStyle.phoneTitle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    timeago.format(doc['timestamp'].toDate()),
+                    style: const TextStyle(fontSize: 12),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],

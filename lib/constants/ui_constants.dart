@@ -27,10 +27,8 @@ class AppStyle {
       GoogleFonts.nunito(fontSize: 25.0, fontWeight: FontWeight.w600);
   static TextStyle phoneTitle = GoogleFonts.roboto(
       fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.grey[600]);
-
   static TextStyle dataText = GoogleFonts.roboto(
       fontSize: 17.0, fontWeight: FontWeight.w400, color: Colors.black87);
-
   static TextStyle dniTitle =
       GoogleFonts.roboto(fontSize: 12.0, fontWeight: FontWeight.bold);
   static TextStyle mainContent =

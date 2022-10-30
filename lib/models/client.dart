@@ -26,6 +26,7 @@ class Clients {
       'phone': phone,
       'dni': dni,
       'gender': gender,
+      'timestamp': Timestamp.now(),
     };
   }
 

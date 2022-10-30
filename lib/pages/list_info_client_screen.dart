@@ -5,6 +5,7 @@ import 'package:regiscater/constants/ui_constants.dart';
 import 'package:regiscater/pages/read_client.dart';
 import 'package:regiscater/widgets/client_card.dart';
 import 'package:rive/rive.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class ListClientScreen extends StatefulWidget {
   const ListClientScreen({super.key});
@@ -104,6 +105,7 @@ class _ListClientScreenState extends State<ListClientScreen> {
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection('Clients')
+                    .orderBy('timestamp', descending: true)
                     .snapshots(),
                 builder: ((context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
