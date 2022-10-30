@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Clients {
   final String? id;
   final String name;
+  final String gender;
   final int dni;
   final String email;
   final int phone;
@@ -11,6 +12,7 @@ class Clients {
   Clients(
       {this.id,
       required this.name,
+      required this.gender,
       required this.dni,
       required this.email,
       required this.phone,
@@ -23,6 +25,7 @@ class Clients {
       'email': email,
       'phone': phone,
       'dni': dni,
+      'gender': gender,
     };
   }
 
@@ -32,5 +35,6 @@ class Clients {
         age = doc.data()!["age"],
         email = doc.data()!["salary"],
         phone = doc.data()!['phone'],
-        dni = doc.data()!["dni"];
+        dni = doc.data()!["dni"],
+        gender = doc.data()!["gender"];
 }
