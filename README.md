@@ -8,6 +8,8 @@ This project is a starting point for a Flutter application.
 
 Para realizar el proyecto se uso Firebase como base de datos, por lo que se tiene que tener acceso a internet para poder usar la aplicacion, ademas las credenciales ya estan definidas en el archivo [firebase_options.dart](https://gitlab.com/Jose1060/regiscater/-/blob/master/lib/firebase_options.dart), este sera borrado del repositorio y el proyecto eliminado de firebase para evitar problemas.
 
+Los campos y algunos datos estan en Ingles, pero se siguen todas las peticiones del Product owner.
+
 Si hay algun problema pueden contactarme.
 
 A few resources to get you started if this is your first Flutter project:

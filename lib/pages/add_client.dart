@@ -16,12 +16,14 @@ class AddClientScreen extends StatefulWidget {
 
 class _AddClientScreenState extends State<AddClientScreen> {
   String? gender = "Gender";
+  String? married = "Married";
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController dniController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  TextEditingController civilController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
   bool isLoading = false;
@@ -264,6 +266,45 @@ class _AddClientScreenState extends State<AddClientScreen> {
                                   ))
                               .toList()),
                       const SizedBox(height: spaceFormInput),
+                      const Text(
+                        'Marital Status',
+                        style: textStyle,
+                      ),
+                      const SizedBox(height: 8.0),
+                      DropdownButtonFormField(
+                          validator: (value) {
+                            if (value == "Marital") {
+                              const error = 'Please select a Marital status';
+                              setState(() {
+                                _errores.add(error);
+                              });
+                              return error;
+                            }
+                            return null;
+                          },
+                          onChanged: (String? v) {
+                            setState(() {
+                              married = v;
+                            });
+                          },
+                          decoration: inputDecoration,
+                          value: married,
+                          items: <String>[
+                            "Marital",
+                            "Single",
+                            "Married",
+                            "Widowed",
+                            "Divorced"
+                          ]
+                              .map((v) => DropdownMenuItem(
+                                    value: v,
+                                    child: Text(
+                                      v,
+                                      style: inputTextStyle,
+                                    ),
+                                  ))
+                              .toList()),
+                      const SizedBox(height: spaceFormInput),
                       !isLoading
                           ? Center(
                               child: ElevatedButton(
@@ -289,6 +330,7 @@ class _AddClientScreenState extends State<AddClientScreen> {
                                         email: emailController.text,
                                         phone: int.parse(phoneController.text),
                                         gender: gender!,
+                                        civil: married!,
                                       );
                                       setState(() {
                                         isLoading = true;

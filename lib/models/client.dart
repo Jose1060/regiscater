@@ -6,6 +6,7 @@ class Clients {
   final String gender;
   final int dni;
   final String email;
+  final String civil;
   final int phone;
   final int age;
 
@@ -13,6 +14,7 @@ class Clients {
       {this.id,
       required this.name,
       required this.gender,
+      required this.civil,
       required this.dni,
       required this.email,
       required this.phone,
@@ -27,6 +29,7 @@ class Clients {
       'dni': dni,
       'gender': gender,
       'timestamp': Timestamp.now(),
+      'civil': civil,
     };
   }
 
@@ -37,5 +40,6 @@ class Clients {
         email = doc.data()!["salary"],
         phone = doc.data()!['phone'],
         dni = doc.data()!["dni"],
-        gender = doc.data()!["gender"];
+        gender = doc.data()!["gender"],
+        civil = doc.data()!["gender"];
 }
