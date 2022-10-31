@@ -14,6 +14,17 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
+
+////////////////////////////////////////////////////////////////////////////////////
+
+// ! Deje las credenciales para pruebas y evitar problemas,
+// ! espero que no me las roben :v
+
+// ! Esto normalmente van ocultas en un archivo para variables de entorno
+// ! aun no me familiarizo con eso en Flutter y son demaciadas credenciales
+
+////////////////////////////////////////////////////////////////////////////////////
+
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -66,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '285288498740',
     projectId: 'regiscater',
     storageBucket: 'regiscater.appspot.com',
-    iosClientId: '285288498740-vn9vhronhcpuebl5fgcnbl8jp6b910ko.apps.googleusercontent.com',
+    iosClientId:
+        '285288498740-vn9vhronhcpuebl5fgcnbl8jp6b910ko.apps.googleusercontent.com',
     iosBundleId: 'com.jose1060.regiscater',
   );
 
@@ -76,7 +88,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '285288498740',
     projectId: 'regiscater',
     storageBucket: 'regiscater.appspot.com',
-    iosClientId: '285288498740-vn9vhronhcpuebl5fgcnbl8jp6b910ko.apps.googleusercontent.com',
+    iosClientId:
+        '285288498740-vn9vhronhcpuebl5fgcnbl8jp6b910ko.apps.googleusercontent.com',
     iosBundleId: 'com.jose1060.regiscater',
   );
 }

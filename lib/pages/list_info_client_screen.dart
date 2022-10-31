@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:regiscater/constants/ui_constants.dart';
+import 'package:regiscater/pages/add_client.dart';
 import 'package:regiscater/pages/read_client.dart';
 import 'package:regiscater/widgets/client_card.dart';
 import 'package:rive/rive.dart';
@@ -34,10 +35,16 @@ class _ListClientScreenState extends State<ListClientScreen> {
 
   @override
   Widget build(BuildContext context) {
+    void handleNavigate(BuildContext context) {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const AddClientScreen()),
+      );
+    }
+
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.pushNamed(context, '/add');
+          handleNavigate(context);
         },
         backgroundColor: primaryColor,
         icon: const SizedBox(
